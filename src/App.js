@@ -63,10 +63,8 @@ class App extends Component {
                         </Jumbotron>
                     </Col>
 
-                    {!!this.state.chronosTime &&
-                    <Col xs={6} xsOffset={3}>
-                        <Tags saveTags={this.addTags}/>
-                    </Col>}
+                    <Tags saveTags={this.addTags}
+                          show={!!this.state.chronosTime} />
 
                     {!!this.state.timeTagsArray.length &&
                     <Col xs={12}>
