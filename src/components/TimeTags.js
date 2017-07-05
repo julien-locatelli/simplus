@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 
 import {
     Table
@@ -12,6 +13,11 @@ const renderFormattedTags = (tags) => {
     ));
 };
 
+const renderFormattedDate = (timestamp) => {
+    if(timestamp)
+        return moment(timestamp).fromNow();
+};
+
 class TimeTags extends Component {
 
     render() {
@@ -21,6 +27,7 @@ class TimeTags extends Component {
             <Table responsive striped bordered condensed hover>
                 <thead>
                 <tr>
+                    <th>Date</th>
                     <th>Time</th>
                     <th>Tags</th>
                 </tr>
@@ -28,6 +35,7 @@ class TimeTags extends Component {
                 <tbody>
                 {this.props.array.map((row, index) => (
                     <tr key={index}>
+                        <td>{renderFormattedDate(row.timestamp)}</td>
                         <td>{renderFormattedTime(row.time)}</td>
                         <td>{renderFormattedTags(row.tags)}</td>
                     </tr>

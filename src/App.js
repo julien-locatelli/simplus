@@ -33,15 +33,16 @@ class App extends Component {
     addTags(tags) {
 
         const newTimeTagElement = {
-            time: this.state.chronosTime,
-            tags
+            tags,
+            time     : this.state.chronosTime,
+            timestamp: new Date().getTime()
         };
 
         const timeTagsArray = this.state.timeTagsArray.concat(newTimeTagElement);
 
         this.setState({
             timeTagsArray,
-            chronosTime  : 0
+            chronosTime: 0
         });
 
         WorkingTimeService.saveWorkingTimeArray(timeTagsArray);
