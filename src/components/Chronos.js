@@ -4,7 +4,8 @@ import moment from 'moment';
 
 import {
     Col,
-    Button
+    Button,
+    Jumbotron
 } from 'react-bootstrap';
 
 import {renderFormattedTime} from '../utils';
@@ -55,26 +56,31 @@ class Chronos extends Component {
         return (
             <div>
 
-                <Col xs={12}>
-                    <div className="chronosTime">
-                        {renderFormattedTime(this.state.chronosTime)}
-                    </div>
-                </Col>
+                <h2>Chronos</h2>
 
-                <Col>
-                    {!this.state.hasStarted &&
-                    <Button block
-                            onClick={this.startChronos}>
-                        Start
-                    </Button>}
+                <Jumbotron>
+                    <Col xs={12}>
+                        <div className="chronosTime">
+                            {renderFormattedTime(this.state.chronosTime)}
+                        </div>
+                    </Col>
 
-                    {this.state.hasStarted &&
-                    <Button block
-                            onClick={this.stopChronos}>
-                        Stop
-                    </Button>}
+                    <Col>
+                        {!this.state.hasStarted &&
+                        <Button block
+                                onClick={this.startChronos}>
+                            Start
+                        </Button>}
 
-                </Col>
+                        {this.state.hasStarted &&
+                        <Button block
+                                onClick={this.stopChronos}>
+                            Stop
+                        </Button>}
+
+                    </Col>
+                </Jumbotron>
+
             </div>
         )
     }

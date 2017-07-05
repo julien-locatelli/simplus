@@ -56,20 +56,18 @@ class App extends Component {
                 <h1>Exercice</h1>
 
                 <Row>
-                    <Col xs={6} xsOffset={3}>
-                        <Jumbotron>
-                            <Chronos timeValue={this.state.chronosTime}
-                                     onStop={chronosTime => this.setState({chronosTime})}/>
-                        </Jumbotron>
+                    <Col xs={3}>
+                        <Chronos timeValue={this.state.chronosTime}
+                                 onStop={chronosTime => this.setState({chronosTime})}/>
                     </Col>
+
+                    {!!this.state.timeTagsArray.length &&
+                    <Col xs={9}>
+                        <TimeTags array={this.state.timeTagsArray}/>
+                    </Col>}
 
                     <Tags saveTags={this.addTags}
                           show={!!this.state.chronosTime} />
-
-                    {!!this.state.timeTagsArray.length &&
-                    <Col xs={12}>
-                        <TimeTags array={this.state.timeTagsArray}/>
-                    </Col>}
                 </Row>
             </div>
         );

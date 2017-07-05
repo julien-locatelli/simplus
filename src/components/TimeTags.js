@@ -14,7 +14,7 @@ const renderFormattedTags = (tags) => {
 };
 
 const renderFormattedDate = (timestamp) => {
-    if(timestamp)
+    if (timestamp)
         return moment(timestamp).fromNow();
 };
 
@@ -24,24 +24,27 @@ class TimeTags extends Component {
 
         return (
 
-            <Table responsive striped bordered condensed hover>
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Tags</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.props.array.map((row, index) => (
-                    <tr key={index}>
-                        <td>{renderFormattedDate(row.timestamp)}</td>
-                        <td>{renderFormattedTime(row.time)}</td>
-                        <td>{renderFormattedTags(row.tags)}</td>
+            <div>
+                <h2>Time working</h2>
+                <Table responsive striped bordered condensed hover>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Tags</th>
                     </tr>
-                ))}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody>
+                    {this.props.array.map((row, index) => (
+                        <tr key={index}>
+                            <td>{renderFormattedDate(row.timestamp)}</td>
+                            <td>{renderFormattedTime(row.time)}</td>
+                            <td>{renderFormattedTags(row.tags)}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </Table>
+            </div>
         )
     }
 }

@@ -2,8 +2,6 @@ import moment from 'moment';
 
 function formatMilliSecond(millisecond) {
 
-    console.log(millisecond);
-
     if(millisecond < 10)
         return `00${millisecond}`;
 
