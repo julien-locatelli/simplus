@@ -6,7 +6,6 @@ export default class LocalStorage {
     }
 
     static getItem(key) {
-        return window.localStorage.getItem(key);
+        return JSON.parse(window.localStorage.getItem(key));
     }
-
 }
