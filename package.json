@@ -1,0 +1,28 @@
+{
+  "name": "simplus",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10",
+    "react-tagsinput": "^3.17.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "npm-run-all --parallel watch:css start",
+    "watch:css": "nodemon -e scss -x \"npm run build:css\"",
+    "build:css": "node-sass --include-path scss ./src/styles/styles.scss ./src/styles.css",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
