@@ -19,7 +19,7 @@ class App extends Component {
 
         this.state = {
             chronosTime  : 0,
-            timeTagsArray: [{time: 10003, tags: ['tag1', 'tag2']}]
+            timeTagsArray: []
         };
 
         this.addTags = this.addTags.bind(this);
