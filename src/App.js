@@ -4,6 +4,8 @@ import Chronos from './components/Chronos';
 import Tags from './components/Tags';
 import TimeTags from './components/TimeTags';
 
+import WorkingTimeService from './services/WorkingTime';
+
 import {
     Col,
     Row,
@@ -23,6 +25,11 @@ class App extends Component {
         this.addTags = this.addTags.bind(this);
     }
 
+    componentWillMount() {
+        WorkingTimeService.getWorkingTimeArray()
+            .then(workingTimeArray => this.setState({timeTagsArray: workingTimeArray}));
+    }
+
     addTags(tags) {
 
         const newTimeTagElement = {
@@ -30,10 +37,14 @@ class App extends Component {
             tags
         };
 
+        const timeTagsArray = this.state.timeTagsArray.concat(newTimeTagElement);
+
         this.setState({
-            timeTagsArray: this.state.timeTagsArray.concat(newTimeTagElement),
+            timeTagsArray,
             chronosTime  : 0
         });
+
+        WorkingTimeService.saveWorkingTimeArray(timeTagsArray);
     }
 
     render() {
